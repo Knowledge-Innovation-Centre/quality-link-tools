@@ -23,5 +23,11 @@ python3 -m venv venv
 pip install -r requirements.txt
 ```
 
-[convert.py](desm/convert.py) prepares ELM ontology and application profile for use in DESM. Pass both the ontology file and the application profile (e.g. LOQ) to it.
+### ELM
+
+[convert.py](desm/ELM/convert.py) prepares ELM ontology and application profile for use in DESM. Pass both the ontology file and the application profile (e.g. LOQ) to it.
+
+### OOAPI
+
+See [desm/OOAPI/](desm/OOAPI/).
 
