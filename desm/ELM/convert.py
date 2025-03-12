@@ -97,7 +97,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser()
     parser.add_argument("INPUT",
-                        nargs='*',
+                        nargs='+',
                         help="SHACL and ontology files to convert for DESM")
     parser.add_argument("-o", "--output",
                         type=pathlib.Path,
