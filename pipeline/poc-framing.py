@@ -9,47 +9,44 @@
 # SECTION 1: SETUP AND DEPENDENCIES
 # =============================================================================
 
-try:
-    from rdflib import Graph
-    from pyld import jsonld
-    import requests
-    import json
-    import sys
-    import os
-    import json
-    import uuid
-    import re
-    import time
-    import meilisearch
-    import uuid
+import argparse
+import pathlib
+from rdflib import Graph
+from pyld import jsonld
+import requests
+import json
+import sys
+import os
+import json
+import uuid
+import re
+import time
+import meilisearch
+import uuid
 
-    print("✅ Dependencies loaded successfully!")
-
-except:
-    print("❌ Dependencies failed to load!")
-
-
-# In[ ]:
+print("✅ Dependencies loaded successfully!")
 
 
 # =============================================================================
 # SECTION 2: CONFIGURATION
 # =============================================================================
 
-
-# In[ ]:
-
+parser = argparse.ArgumentParser(description='n!=??!J!', epilog="this is da epilog")
+parser.add_argument('URI', nargs='?', help='fetch this specific learning opportunity')
+parser.add_argument('-f', '--frame', type=pathlib.Path, help='JSON-LD frame document')
+parser.add_argument('-d', '--dump', action='store_true', help='dump JSON-LD before upload')
+args = parser.parse_args()
 
 # Jena Fuseki Configuration
-FUSEKI_URL = "https://tso8cgo4wock4og4kg44w0sc.serverfarm.knowledgeinnovation.eu/"  
-DATASET_NAME = "test-data"  
-FUSEKI_USERNAME = "****"  
-FUSEKI_PASSWORD = "****" 
+FUSEKI_URL = os.environ.get('FUSEKI_URL', "https://fuseki.app.quality-link.eu")
+DATASET_NAME = os.environ.get('FUSEKI_DATASET', "pipeline-data")
+FUSEKI_USERNAME = os.environ.get('FUSEKI_USERNAME', 'admin')
+FUSEKI_PASSWORD = os.environ.get('FUSEKI_PASSWORD')
 
 # Meilisearch Configuration  
-MEILISEARCH_URL = "https://lwowo04cs888sswsswoc4kwo.serverfarm.knowledgeinnovation.eu"  
-MEILISEARCH_API_KEY = "****"  
-INDEX_NAME = "test-index"
+MEILISEARCH_URL = os.environ.get('MEILISEARCH_URL', "https://lwowo04cs888sswsswoc4kwo.serverfarm.knowledgeinnovation.eu")
+MEILISEARCH_API_KEY = os.environ.get('MEILISEARCH_API_KEY')
+INDEX_NAME = os.environ.get('MEILISEARCH_INDEX', "test-index")
 
 print("⚙️ Configuration variables set")
 
@@ -70,10 +67,17 @@ query_los_list = """
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ql: <http://data.quality-link.eu/ontology/v1#>
+PREFIX elm: <http://data.europa.eu/snb/model/elm/>
 
 SELECT ?learningOpportunity
 WHERE {
+  {
     ?learningOpportunity rdf:type ql:LearningOpportunitySpecification .
+  } UNION {
+    ?learningOpportunity rdf:type elm:LearningAchievementSpecification .
+  } UNION {
+    ?learningOpportunity rdf:type elm:Qualification .
+  }
 }
 LIMIT 100
 """
@@ -81,6 +85,7 @@ LIMIT 100
 # Execute LOS query  
 try:
     los_response = requests.get(query_url, params={'query': query_los_list, 'format': 'application/sparql-results+json'}, auth=auth, timeout=15)
+    los_response.raise_for_status()
     los_results = los_response.json()['results']['bindings'] if los_response.status_code == 200 else []
     print(f"✅ LOS query: {len(los_results)} results")
 except Exception as e:
@@ -135,40 +140,8 @@ if create_response.status_code not in [200, 201, 202]:
 # Build Learning Opportunity Specification documents  
 print("📚 Processing Learning Opportunity Specifications...")
 
-lo_frame =  {
-    "@type": [
-        "http://data.quality-link.eu/ontology/v1#LearningOpportunitySpecification"
-    ],
-    
-    "@context": {
-        "id": "@id",
-        "type": "@type",
-        "ql": "http://data.quality-link.eu/ontology/v1#",
-        "elm": "http://data.europa.eu/snb/model/elm/",
-        "dcterms": "http://purl.org/dc/terms/",
-        "has_instances": {
-            "@reverse": "http://data.europa.eu/snb/model/elm/learningAchievementSpecification"
-        },
-        "LearningOutcome": "elm:LearningOutcome",
-        "learningOutcome": {
-            "@id": "elm:learningOutcome",
-            "@language": "dcterms:title"
-        },
-        "dcterms:description" : {
-            "@language": "en"
-        },
-        "elm:ISCEDFCode": {
-            "@type": "@id"
-        },
-        "ql:isActive": {
-            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
-        },
-        "title" : {
-            "@id": "dcterms:title",
-            "@language" : "en"
-        }
-    }
-}
+with open(args.frame) as f:
+    lo_frame =  json.load(f)
 
 # Upload the documents
 upload_url = f"{MEILISEARCH_URL}/indexes/{INDEX_NAME}/documents"
@@ -194,9 +167,12 @@ for result in los_results:
 
     # use JSON-LD framing
     framed_json = jsonld.frame(lo_response.json(), lo_frame)
-    del framed_json['@context'] # drop context for Meilisearch
+    if '@context' in framed_json:
+        del framed_json['@context'] # drop context for Meilisearch
     framed_json['id'] = str(uuid.uuid5(uuid.NAMESPACE_URL, lo_uri)) # use UUIDv5, suitable for Meilisearch
-    json.dump(framed_json, sys.stdout, indent=4)
+
+    if args.dump:
+        json.dump(framed_json, sys.stdout, indent=4)
 
     upload_response = requests.post(
         upload_url,
@@ -237,7 +213,5 @@ for result in los_results:
                 break
     else:
         print(f"❌ Upload failed: {upload_response.text}")
-
-
 
 
