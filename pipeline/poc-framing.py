@@ -33,8 +33,9 @@ print("✅ Dependencies loaded successfully!")
 
 parser = argparse.ArgumentParser(description='n!=??!J!', epilog="this is da epilog")
 parser.add_argument('URI', nargs='?', help='fetch this specific learning opportunity')
-parser.add_argument('-f', '--frame', type=pathlib.Path, help='JSON-LD frame document')
+parser.add_argument('-f', '--frame', type=pathlib.Path, help='JSON-LD frame document', required=True)
 parser.add_argument('-d', '--dump', action='store_true', help='dump JSON-LD before upload')
+parser.add_argument('-c', '--commit', action='store_true', help='write data to Meilisearch')
 args = parser.parse_args()
 
 # Jena Fuseki Configuration
@@ -165,6 +166,10 @@ for result in los_results:
     lo_response = requests.get(query_url, params={'query': query_lo_single, 'format': 'application/ld+json'}, auth=auth, timeout=15)
     lo_response.raise_for_status()
 
+    if args.dump:
+        print("RAW\n---")
+        json.dump(lo_response.json(), sys.stdout, indent=4)
+
     # use JSON-LD framing
     framed_json = jsonld.frame(lo_response.json(), lo_frame)
     if '@context' in framed_json:
@@ -172,7 +177,11 @@ for result in los_results:
     framed_json['id'] = str(uuid.uuid5(uuid.NAMESPACE_URL, lo_uri)) # use UUIDv5, suitable for Meilisearch
 
     if args.dump:
+        print("FRAMED\n------")
         json.dump(framed_json, sys.stdout, indent=4)
+
+    if not args.commit:
+        continue
 
     upload_response = requests.post(
         upload_url,

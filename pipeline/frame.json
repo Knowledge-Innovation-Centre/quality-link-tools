@@ -44,6 +44,12 @@
         "elm:Qualification",
         "elm:LearningAchievementSpecification"
     ],
+    "dcterms:publisher": {
+        "@explicit": true,
+        "id": {},
+        "elm:legalName": {},
+        "dcterms:title": {}
+    },
     "elm:EQFLevel": {
         "@embed": "@never"
     },
@@ -51,6 +57,7 @@
         "@embed": "@never"
     },
     "dcterms:language": {
-        "@embed": "@never"
+        "@explicit": true,
+        "skos:prefLabel": {}
     }
 }
