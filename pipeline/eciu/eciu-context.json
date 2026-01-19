@@ -1,0 +1,130 @@
+{
+  "@context": {
+    "adms": "http://www.w3.org/ns/adms#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "elm": "http://data.europa.eu/snb/model/elm/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ql": "http://data.quality-link.eu/ontology/v1#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Id": "@id",
+    "Type": "@type",
+    "Title": {
+      "@id": "dcterms:title",
+      "@container": "@language"
+    },
+    "Description": {
+      "@id": "dcterms:description",
+      "@container": "@language"
+    },
+    "PrefLabel": {
+      "@id": "skos:prefLabel",
+      "@container": "@language"
+    },
+    "Mode": {
+      "@id": "elm:mode",
+      "@context": {
+        "Type": null,
+        "InScheme": null,
+        "PrefLabel": null
+      }
+    },
+    "EQFLevel": {
+      "@id": "elm:eqfLevel",
+      "@context": {
+        "Type": null,
+        "InScheme": null,
+        "PrefLabel": null
+      }
+    },
+    "CreditPoint": {
+      "@id": "elm:creditPoint",
+      "@type": "elm:CreditPoint"
+    },
+    "Framework": {
+      "@id": "elm:framework",
+      "@context": {
+        "Type": null,
+        "InScheme": null,
+        "PrefLabel": null
+      }
+    },
+    "Point": "elm:point",
+    "LearningOutcome": {
+      "@id": "elm:learningOutcome",
+      "@type": "elm:LearningOutcome"
+    },
+    "RelatedESCOSkill": {
+      "@id": "elm:relatedESCOSkill",
+      "@context": {
+        "Type": null,
+        "InScheme": null,
+        "Notation": null,
+        "PrefLabel": null
+      }
+    },
+    "AdditionalNote": {
+      "@id": "elm:additionalNote",
+      "@type": "elm:Note"
+    },
+    "MoreInformation": {
+      "@id": "elm:additionalNote",
+      "@type": "elm:Note",
+      "@context": {
+        "NoteLiteral": "elm:noteLiteral"
+      }
+    },
+    "LearningSetting": {
+      "@id": "elm:learningSetting",
+      "@context": {
+        "Type": null,
+        "InScheme": null,
+        "PrefLabel": null
+      }
+    },
+    "HomePage": "foaf:homepage",
+    "VolumeOfLearning": {
+      "@id": "elm:volumeOfLearning",
+      "@type": "xsd:duration"
+    },
+    "ApplicationDeadline": "elm:applicationDeadline",
+    "AdmissionsProcedure": "elm:admissionProcedure",
+    "Temporal": {
+      "@id": "dcterms:temporal",
+      "@type": "dcterms:PeriodOfTime",
+      "@context": {
+        "StartDate": {
+          "@id": "elm:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "EndDate": {
+          "@id": "elm:endDate",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+    "IsPartOf": "elm:isPartOf",
+    "LearningOpportunity": "elm:LearningOpportunity",
+    "Qualification": "elm:Qualification",
+    "LearningAchievementSpecification": {
+      "@id": "elm:learningAchievementSpecification",
+      "@type": "elm:LearningAchievementSpecification"
+    },
+    "LearningActivitySpecification": {
+      "@id": "elm:learningActivitySpecification",
+      "@type": "elm:LearningActivitySpecification"
+    },
+    "ProvidedBy": {
+      "@id": "elm:providedBy",
+      "@context": {
+        "LegalName": {
+            "@id": "elm:legalName",
+            "@container": "@language"
+        }
+      }
+    },
+    "Organisation": "elm:Organisation",
+    "Concept": "skos:Concept"
+  }
+}
