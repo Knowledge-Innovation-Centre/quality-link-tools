@@ -1,0 +1,25 @@
+@prefix edehuc1: <http://purl.org/edeh/uc1-classes#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/edeh/uc1-classes> a skos:ConceptScheme ;
+    dcterms:title "HEIF Use Case 1 - Abstract Mapping Classes"@en ;
+	dcterms:description "This scheme identifies the abstract mapping classes relevant for EDEH HEIF use case 1, focusing on course catalogues."@en ;
+    dcterms:publisher "EDEH Task Force 2" ;
+	dcterms:created "2026-01-26"^^xsd:date ;
+    dcterms:modified "2026-01-26"^^xsd:date ;
+	skos:hasTopConcept edehuc1:Programme, edehuc1:Component .
+
+edehuc1:Programme a skos:Concept ;
+    skos:prefLabel "Study programme"@en ;
+    dcterms:description "Study programme as understood by the ECTS Users' Guide (2015) format."@en ;
+    skos:inScheme <http://purl.org/edeh/uc1-classes> .
+
+edehuc1:Component a skos:Concept ;
+    skos:prefLabel "Educational component"@en ;
+    dcterms:description "Educational component (e.g. course, module) as understood by the ECTS Users' Guide (2015) format."@en ;
+    skos:inScheme <http://purl.org/edeh/uc1-classes> .
+

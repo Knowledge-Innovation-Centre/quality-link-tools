@@ -1,0 +1,61 @@
+@prefix edehmap: <http://purl.org/edeh/mappingPredicates#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix desm: <https://desmsolutions.org/ns/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/edeh/mappingPredicates> a skos:ConceptScheme ;
+    dcterms:created "2026-01-24"^^xsd:date ;
+    dcterms:creator "EDEH Task Force 2"@en ;
+    dcterms:description "This concept scheme identifies the mapping predicates used for DESM."@en ;
+    dcterms:title "EDEH Mapping Predicates"@en ;
+    skos:hasTopConcept
+        edehmap:identical ,
+        edehmap:similar ,
+        edehmap:aggregated ,
+        edehmap:disaggregated ,
+        edehmap:concept ,
+        edehmap:noMatch .
+
+edehmap:identical a skos:Concept ;
+    skos:definition "The definition is identical in intent, with identical wording or minor differences."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "Identical"@en ;
+    desm:weight 5 .
+
+edehmap:similar a skos:Concept ;
+    skos:definition "The definition is similar in intent, but with wording differences."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "Similar"@en ;
+    desm:weight 4 .
+
+edehmap:aggregated a skos:Concept ;
+    skos:definition "Single property in the spine maps to multiple properties in the specification being mapped."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "Aggregated"@en ;
+    desm:weight 3 .
+
+edehmap:disaggregated a skos:Concept ;
+    skos:definition "Multiple properties in the spine, map to the property in the specification being mapped."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "Disaggregated"@en ;
+    desm:weight 3 .
+
+edehmap:concept a skos:Concept ;
+    skos:definition "The definition is related only at a conceptual level, with differences in the intention."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "Concept"@en ;
+    desm:weight 2 .
+
+edehmap:issue a skos:Concept ;
+    skos:definition "Annotation to explain alignment where necessary to clarify or to interpret the mapping."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "Issue"@en ;
+    desm:weight 1 .
+
+edehmap:noMatch a skos:Concept ;
+    skos:definition "There's no property to match to the property of a class in the spine."@en ;
+    skos:inScheme <http://purl.org/edeh/mappingPredicates> ;
+    skos:prefLabel "No Match"@en ;
+    desm:weight 0 .
+
