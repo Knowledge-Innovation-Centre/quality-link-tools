@@ -1,0 +1,294 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/edeh/ects#> a owl:Ontology ;
+    dcterms:title "ECTS Course Catalogue Format"@en ;
+	dcterms:description "This ontology includes the terms defined in the ECTS Course Catalogue format (according to the 2015 Users' Guide), with explanations based on the explanatory note prepared by the Dutch team of Bologna Experts in the framework of the project FaBoTo II - see https://www.erasmusplus.nl/sites/default/files/2021-04/ects%20course%20catalogue%20in%20practice.pdf"@en ;
+    dcterms:publisher "EDEH Task Force 2" ;
+	dcterms:created "2026-01-26"^^xsd:date ;
+    dcterms:modified "2026-01-26"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "2015" .
+
+<http://purl.org/edeh/ects#Programme> a rdf:Class ;
+    rdfs:label "Study programme"@en ;
+    rdfs:comment "Study programme as understood by the ECTS Users' Guide (2015) format."@en .
+
+<http://purl.org/edeh/ects#Course> a rdf:Class ;
+    rdfs:label "Educational component"@en ;
+    rdfs:comment "Educational component (e.g. course, module) as understood by the ECTS Users' Guide (2015) format."@en .
+
+<http://purl.org/edeh/ects#MicroCredential> a rdf:Class ;
+    rdfs:label "Micro-credential"@en ;
+    rdfs:comment "A micro-credential is the record of the learning outcomes that a learner has acquired following a small volume of learning (2022 Council Recommendation)."@en .
+
+# Programme
+# =========
+#
+# Information mentioned in the ECTS format for the programme level.
+
+<http://purl.org/edeh/ects#qualificationAwarded> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "qualification awarded" ;
+    rdfs:comment "Be specific about the type of qualification, e.g. Bachelor of Arts, or Bachelor of Nursing." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#lengthOfProgramme> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "length of programme" ;
+    rdfs:comment "Give the length of the programme in years or in months." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#creditsTotal> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "number of credits" ;
+    rdfs:comment "Total number of ECTS credits for the programme." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential>,
+        <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#level> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "level of qualification" ;
+    rdfs:comment "Specified according to the national qualifications framework (NQF) and the European qualifications frameworks (EQF & QF-EHEA). E.g. Bachelor’s degree; EQF level 6; NLQF level 6" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential>,
+        <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#fieldOfStudy> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "field(s) of study" ;
+    rdfs:comment "Should follow the international ISCED fields of education (ISCED-F) classification." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#admissionRequirements> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "specific admission requirements" ;
+    rdfs:comment "This information may be given at an institutional level and/or at the level of individual programmes." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential>,
+        <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#recognitionPriorLearning> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "specific arrangements for recognition of prior learning" ;
+    rdfs:comment "Information on recognition of formal, non-formal and informal prior learning; may be given at an institutional level and/or at the level of individual programmes." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#qualificationRequirements> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "qualification requirements and regulations, including graduation requirements" ;
+    rdfs:comment "Normally, students will receive a diploma when they have completed the (official) study programme and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#profile> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "profile of the programme" ;
+    rdfs:comment "It could be argued that the collective information in this section is a programme profile. However, it is important that the ECTS Course Catalogue includes a brief description of the main focus of the programme." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#programmeLearningOutcomes> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "programme learning outcomes" ;
+    rdfs:comment "List the learning outcomes at programme level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the programme learning outcomes in the course catalogue correspond with those on the Diploma Supplement." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential>,
+        <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#programmeStructure> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "programme structure diagram with credits" ;
+    rdfs:comment "An overview of the structure of the entire programmem with 60 ECTS per full-time equivalent academic year. This can be done with a diagram, but other forms of presentation are also possible, as long as it is clear. It should be made clear whether a programme is based on e.g. semesters or trimesters. In some institutions, a semester is divided into two periods of around 10 weeks." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#modeOfStudy> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "mode of study" ;
+    rdfs:comment "Indicate whether the programme is e.g. full-time, part-time, dual, e-learning." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#examinationAndGrading> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "examination regulations and grading scale" ;
+    rdfs:comment "The examination regulations should be accessible. Information on the grading system used at national and/or institutional level. Should include information on the conversion of grades awarded by partner institutions." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#mobilityWindow> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "obligatory or optional mobility windows" ;
+    rdfs:comment "Information on whether students have the option or are obliged to do part of their study programme outside of the institution. The term mobility window generally refers to a study period or work placement abroad." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#workPlacement> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "work placement(s)" ;
+    rdfs:comment "Information whether the programme contains (a) work placement(s) (internships; traineeships) and whether these are obligatory or optional parts of the programme. Include the number of credits for (each of) the work placement(s)." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#workbasedLearning> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "work-based learning" ;
+    rdfs:comment "If the programme contains a form of work-based learning other than a (traditional) work placement, give a brief description." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#programmeDirector> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "programme director or equivalent" ;
+    rdfs:comment "It may be an institution’s policy not to provide names and contact details of individual members of staff on the institution’s website. In that case, general contact details should be provided." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#occupationalProfile> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "occupational profiles of graduates" ;
+    rdfs:comment "Give a brief description of the types of jobs for which the programme prepares students and/or that graduates generally fulfil." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#accessFurther> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "access to further studies" ;
+    rdfs:comment "Describes what types of further study (e.g. Master or PhD programmes) are accessible for graduates." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential>,
+        <http://purl.org/edeh/ects#Programme> .
+
+# joint programmes only
+# ---------------------
+
+<http://purl.org/edeh/ects#formOfDiplomaAndSupplement> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "information on the form of the diploma and Diploma Supplement" ;
+    rdfs:comment "A joint programme may lead to different types of degrees, e.g. joint, double or multiple degrees. Information on the degree(s) awarded needs to be available. [for joint programmes only]" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#consortium> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "members of consortium and their role" ;
+    rdfs:comment "List the educational institutions which form the consortium that is responsible for offering the programme and, in the case of a joint degree, are responsible for issuing the diploma. [for joint programmes only]" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+<http://purl.org/edeh/ects#mobilityStructure> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "mobility structure of the programme" ;
+    rdfs:comment "Joint programmes generally involve a mandatory mobility period at (one of) the partner institutions that offer the joint programme. Information on which parts of the programme the student has to do abroad, including the number of ECTS credits. [for joint programmes only]" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Programme> .
+
+# Course
+# ======
+#
+# The following properties are at the level of individual educational components:
+
+<http://purl.org/edeh/ects#code> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "code" ;
+    rdfs:comment "Code that is assigned to the component in the institution’s student administration system." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#title> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "title" ;
+    rdfs:comment "Make sure that the English translation of the name of the individual educational component tallies with the names listed on the Transcript of Records (which is part of the Diploma Supplement)" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course>,
+        <http://purl.org/edeh/ects#MicroCredential> .
+
+<http://purl.org/edeh/ects#type> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "type (compulsory/optional)" ;
+    rdfs:comment "It may not be necessary to provide this information for every individual educational component, as long as it is clear which programme the component is part of." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#cycle> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "cycle (short/first/second/third)" ;
+    rdfs:comment "It may not be necessary to provide this information for every individual educational component, as long as it is clear which programme the component is part of." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#yearOfStudy> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "year of study when the component is delivered" ;
+    rdfs:comment "Indicate in which year students normally complete this component. If the programme is not based on fixed years, at least indicate whether it is a component in the Propedeuse or the hoofdfase (main phase)." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#semester> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "semester/trimester when the component is delivered" ;
+    rdfs:comment "Indicate whether the component if (only) offered in the first or second semester of the academic year, or in both." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#credits> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "number of ECTS credits allocated" ;
+    rdfs:comment "Number of ECTS credits that has been allocated to this component." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#lecturer> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "name of lecturer(s)" ;
+    rdfs:comment "Information on the lecturer(s) that are responsible for teaching this component. It may be an institution’s policy not to provide names and contact details of individual members of staff on the institution’s website. In that case, general contact details should be provided." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#learningOutcomes> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "learning outcomes" ;
+    rdfs:comment "A list of the learning outcomes for this component." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#modeOfDelivery> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "mode of delivery" ;
+    rdfs:comment "Information on the mode of delivery of the component, e.g. face-to-face, distance learning, etc." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course>,
+        <http://purl.org/edeh/ects#MicroCredential> .
+
+<http://purl.org/edeh/ects#prerequisites> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "prerequisites and co-requisites" ;
+    rdfs:comment "Information whether a student must have successfully completed certain courses before s/he can take this course." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#content> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "course content" ;
+    rdfs:comment "Brief description of the content of the course. This information bears a close link to the learning outcomes of the component, but has a different function." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#learningResources> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "recommended or required reading and other learning resources/tools" ;
+    rdfs:comment "List of the (most important) literature that students are required or recommended to read, but also include other learning resources. The information is not only relevant for students, but also for (potential) partners, in that it indicates the main focus and the approach that is used." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#learningActivities> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "planned learning activities and teaching methods" ;
+    rdfs:comment "Most important modes of delivery for this component, e.g. lectures, group work, seminars, tutorials, etc." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+<http://purl.org/edeh/ects#assessmentMethodsAndCriteria> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "assessment methods and criteria" ;
+    rdfs:comment "Information on how this component will be assessed, e.g. by means of a written or oral exam, a report, a presentation, a project, group work assessment." ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course>,
+        <http://purl.org/edeh/ects#MicroCredential> .
+
+<http://purl.org/edeh/ects#languageOfInstruction> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "language of instruction" ;
+    rdfs:comment "Indicate in which language(s) the component is taught. If the component is taught in the domestic language, but may include guest lectures given by international guest lecturers or group work with international groups of students, it is relevant to mention that the language of instruction can also be English" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#Course> .
+
+# European Approach to Micro-Credentials
+# ======================================
+#
+# The following properties are mentioned in the annex to the Council Recommendation only, but not in the ECTS format.
+
+<http://purl.org/edeh/ects#supervisionAndIdentityVerification> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "supervision and identity verification during assessment" ;
+    rdfs:comment "Can be unsupervised with no identity verification, supervised with no identity verification, supervised online, or onsite with identity verification. [European Approach to Micro-Credentials]" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential> .
+
+<http://purl.org/edeh/ects#qualityAssurance> a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "type of quality assurance" ;
+    rdfs:comment "Information on the quality assurance that underpins the micro-credential. [European Approach to Micro-Credentials]" ;
+    schema:domainIncludes <http://purl.org/edeh/ects#MicroCredential> .
+
