@@ -1,0 +1,38 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:eciu:org:813e9d57-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/1718> .
+#    elm:legalName "UNIVERSITEIT TWENTE (UT)"@En .
+
+<urn:eciu:org:bde53b3e-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/2104> .
+#    elm:legalName "UNIVERSIDADE DE AVEIRO (UAVR)"@En .
+
+<urn:eciu:org:71f04a2a-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/1928> .
+#    elm:legalName "POLITECHNIKA LODZKA (TUL)"@En .
+
+<urn:eciu:org:ee9c51fc-6954-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/1358> .
+#    elm:legalName "DUBLIN CITY UNIVERSITY (DCU)"@En .
+
+<urn:eciu:org:d2f87009-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/357> .
+#    elm:legalName "TECHNISCHE UNIVERSITAT HAMBURG (TUHH"@En .
+
+<urn:eciu:org:e73e6837-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/786> .
+#    elm:legalName "UNIVERSIDAD AUTONOMA DE BARCELONA (UAB)"@En .
+
+<urn:eciu:org:c7bc8551-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/1470> .
+#    elm:legalName "UNIVERSITA DEGLI STUDI DI TRENTO (UNITN)"@En .
+
+<urn:eciu:org:bc4a5510-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/924> .
+#    elm:legalName "INSTITUT NATIONAL DES SCIENCES APPLIQUEES DE TOULOUSE (INSA TOULOUSE)"@En .
+
+<urn:eciu:org:8586884b-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/1775> .
+#    elm:legalName "UNIVERSITETET I STAVANGER (UiS)"@En .
+
+<urn:eciu:org:f1122d1d-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/2304> .
+#    elm:legalName "LINKOPINGS UNIVERSITET (LIU)"@En .
+
+<urn:eciu:org:4cc1e316-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/1611> .
+#    elm:legalName "KAUNO TECHNOLOGIJOS UNIVERSITETAS (KTU)"@En .
+
+<urn:eciu:org:8f142831-6a54-ed11-bba2-6045bd886566> owl:sameAs <https://data.deqar.eu/institution/7244> .
+#    elm:legalName "TAMPEREEN KORKEAKOULUSAATIO SR (TAU)"@En .
+
