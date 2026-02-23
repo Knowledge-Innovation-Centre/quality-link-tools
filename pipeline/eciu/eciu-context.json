@@ -31,7 +31,7 @@
       }
     },
     "EQFLevel": {
-      "@id": "elm:eqfLevel",
+      "@id": "elm:EQFLevel",
       "@context": {
         "Type": null,
         "InScheme": null,
