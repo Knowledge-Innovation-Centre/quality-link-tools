@@ -40,39 +40,75 @@
     },
     "CreditPoint": {
       "@id": "elm:creditPoint",
-      "@type": "elm:CreditPoint"
-    },
-    "Framework": {
-      "@id": "elm:framework",
       "@context": {
-        "Type": null,
-        "InScheme": null,
-        "PrefLabel": null
+        "Id": null,
+        "CreditPoint": "elm:CreditPoint",
+        "Framework": {
+          "@id": "elm:framework",
+          "@context": {
+            "Id": "@id",
+            "Type": null,
+            "InScheme": null,
+            "PrefLabel": null
+          }
+        }
       }
     },
     "Point": "elm:point",
     "LearningOutcome": {
       "@id": "elm:learningOutcome",
-      "@type": "elm:LearningOutcome"
-    },
-    "RelatedESCOSkill": {
-      "@id": "elm:relatedESCOSkill",
       "@context": {
-        "Type": null,
-        "InScheme": null,
-        "Notation": null,
-        "PrefLabel": null
+        "Id": null,
+        "LearningOutcome": "elm:LearningOutcome",
+        "RelatedESCOSkill": {
+          "@id": "elm:relatedESCOSkill",
+          "@context": {
+            "Id": "@id",
+            "Type": null,
+            "InScheme": null,
+            "Notation": null,
+            "PrefLabel": null
+          }
+        }
       }
+    },
+    "NoteLiteral": {
+      "@id": "elm:noteLiteral",
+      "@container": "@language"
     },
     "AdditionalNote": {
       "@id": "elm:additionalNote",
-      "@type": "elm:Note"
+      "@context": {
+        "Id": null,
+        "Note": "elm:Note",
+        "Subject": {
+          "@id": "dcterms:subject",
+          "@type": "skos:Concept",
+          "@context": {
+            "InScheme": null,
+            "Id": null,
+            "Type": null
+          }
+        }
+      }
     },
     "MoreInformation": {
       "@id": "elm:additionalNote",
-      "@type": "elm:Note",
       "@context": {
-        "NoteLiteral": "elm:noteLiteral"
+        "Note": "elm:Note",
+        "NoteLiteral": {
+          "@id": "elm:noteLiteral",
+          "@language": "en"
+        },
+        "Subject": {
+          "@id": "dcterms:subject",
+          "@type": "skos:Concept",
+          "@context": {
+            "InScheme": null,
+            "Id": null,
+            "Type": null
+          }
+        }
       }
     },
     "LearningSetting": {
