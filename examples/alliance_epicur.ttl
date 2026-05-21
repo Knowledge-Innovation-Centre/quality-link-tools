@@ -1,0 +1,64 @@
+#################################################################
+#
+# QualityLink examples
+# --------------------
+#
+#################################################################
+
+# QualityLink prefix
+@prefix ql: <http://data.quality-link.eu/ontology/v1#> .
+# RDF basics
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+# European Learning Model (ELM)
+@prefix elm: <http://data.europa.eu/snb/model/elm/> .
+@prefix loq: <http://data.europa.eu/snb/model/ap/loq-constraints/> .
+# Other used ontologies
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://data.quality-link.eu/alliance/INT6008>
+    a ql:EuropeanUniversityAlliance ;
+    adms:identifier [
+        a ql:OrgRegIdentifier ;
+        elm:schemeId ql:OrgReg ;
+        elm:schemeName "ETER ID" ;
+        skos:notation "INT6008"
+    ] ;
+    skos:prefLabel "EPICUR"@en .
+
+# EPICUR
+<https://data.deqar.eu/institution/1714> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "University of Amsterdam"
+
+<https://data.deqar.eu/institution/1033> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "University of Strasbourg"
+
+<https://data.deqar.eu/institution/1962> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "Adam Mickiewicz University in Poznań"
+
+<https://data.deqar.eu/institution/715> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "University of Southern Denmark"
+
+<https://data.deqar.eu/institution/317> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "University of Freiburg"
+
+<https://data.deqar.eu/institution/320> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "Karlsruhe Institute of Technology"
+
+<https://data.deqar.eu/institution/1233> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "Aristotle University of Thessaloniki"
+
+<https://data.deqar.eu/institution/1034> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "University of Upper Alsace"
+
+<https://data.deqar.eu/institution/8> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6008> .
+# "University of Natural Resources and Life Sciences Vienna"
+
+

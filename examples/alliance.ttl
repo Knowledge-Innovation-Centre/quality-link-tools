@@ -1,0 +1,81 @@
+#################################################################
+#
+# QualityLink examples
+# --------------------
+#
+# This file contains some example data that is aligned with
+# the QualityLink Application Profile.
+#
+# It has been tested with the SHACL Play! Validator:
+# https://shacl-play.sparna.fr/play/validate
+#
+#################################################################
+
+# QualityLink prefix
+@prefix ql: <http://data.quality-link.eu/ontology/v1#> .
+# RDF basics
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+# European Learning Model (ELM)
+@prefix elm: <http://data.europa.eu/snb/model/elm/> .
+@prefix loq: <http://data.europa.eu/snb/model/ap/loq-constraints/> .
+# Other used ontologies
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://data.quality-link.eu/alliance/INT6006>
+    a ql:EuropeanUniversityAlliance ;
+    adms:identifier [
+        a ql:OrgRegIdentifier ;
+        elm:schemeId ql:OrgReg ;
+        elm:schemeName "ETER ID" ;
+        skos:notation "INT6006"
+    ] ;
+    skos:prefLabel "ECIU University"@en .
+
+# ECIU
+<https://data.deqar.eu/institution/357> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/924> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/786> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/1611> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/2304> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/1928> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/1358> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/7244> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/2104> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/1775> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/1470> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+<https://data.deqar.eu/institution/1718> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6006> .
+
+<http://data.quality-link.eu/alliance/INT6035>
+    a ql:EuropeanUniversityAlliance ;
+    adms:identifier [
+        a ql:OrgRegIdentifier ;
+        elm:schemeId ql:OrgReg ;
+        elm:schemeName "ETER ID" ;
+        skos:notation "INT6035"
+    ] ;
+    skos:prefLabel "EuroTeQ Engineering University"@en .
+
+# EuroTeQ
+<https://data.deqar.eu/institution/1717> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6035> .
+
+<http://data.quality-link.eu/alliance/INT6017>
+    a ql:EuropeanUniversityAlliance ;
+    adms:identifier [
+        a ql:OrgRegIdentifier ;
+        elm:schemeId ql:OrgReg ;
+        elm:schemeName "ETER ID" ;
+        skos:notation "INT6017"
+    ] ;
+    skos:prefLabel "EU4Dual - European Dual Studies University"@en .
+
+# EU4Dual
+<https://data.deqar.eu/institution/498> ql:isMemberOf <http://data.quality-link.eu/alliance/INT6017> .
+
