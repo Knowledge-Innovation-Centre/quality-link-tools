@@ -1,0 +1,32 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:uuid:40a7ca5e-832f-43da-9d0f-31c1bbaa81bb> owl:sameAs <https://data.deqar.eu/institution/1714> .
+# "University of Amsterdam"
+
+<urn:uuid:4dbd091e-afba-4167-9dbd-f6d572a77f78> owl:sameAs <https://data.deqar.eu/institution/1033> .
+# "University of Strasbourg"
+
+<urn:uuid:8aa66aef-5341-42d1-b4a0-4835e32af559> owl:sameAs <https://data.deqar.eu/institution/1962> .
+# "Adam Mickiewicz University in Poznań"
+
+#<urn:uuid:a0910c0e-e27b-4edd-b9f2-df032e83b242> owl:sameAs <https://data.deqar.eu/institution/> .
+# "EPICUR European University"
+
+<urn:uuid:a1817079-3be1-45c2-87dc-67d92517ea24> owl:sameAs <https://data.deqar.eu/institution/715> .
+# "University of Southern Denmark"
+
+<urn:uuid:e2f64a69-b76e-4b61-a1d9-aac9a0502652> owl:sameAs <https://data.deqar.eu/institution/317> .
+# "University of Freiburg"
+
+<urn:uuid:eb21711f-3fd4-4fad-9650-9f8a0b8ffca8> owl:sameAs <https://data.deqar.eu/institution/320> .
+# "Karlsruhe Institute of Technology"
+
+<urn:uuid:ed3e6536-9bb8-4c55-a691-f8cb1b852ac8> owl:sameAs <https://data.deqar.eu/institution/1233> .
+# "Aristotle University of Thessaloniki"
+
+<urn:uuid:fe52a0e2-e5b8-4ab5-8ccd-b6c6c82ff9db> owl:sameAs <https://data.deqar.eu/institution/1034> .
+# "University of Upper Alsace"
+
+<urn:uuid:ff219329-08af-4243-8b92-6b4f68c780d6> owl:sameAs <https://data.deqar.eu/institution/8> .
+# "University of Natural Resources and Life Sciences Vienna"
+
